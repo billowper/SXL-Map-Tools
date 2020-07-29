@@ -1,0 +1,20 @@
+{
+  "name": "com.billowper.sxl-map-tools",
+  "version": "1.0.0",
+  "displayName": "SXL Map Tools",
+  "description": "Collection of tools for making custom maps for Skater SXL",
+  "unity": "2019.3",
+  "unityRelease": "15f1",
+  "dependencies": {
+    "com.unity.editorcoroutines": "1.0.0"
+  },
+  "keywords": [
+    "SkaterXL"
+  ],
+  "author": {
+    "name": "Billowper",
+    "email": "blll.lowe87@gmail.com",
+    "url": "https://github.com/billowper/Skater-XL-Map-Tools"
+  },
+  "type": "tool"
+}
