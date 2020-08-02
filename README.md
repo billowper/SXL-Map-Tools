@@ -1,6 +1,8 @@
 # SXL-Map-Tools
 
-Collection of tools for making custom maps for Skater XL
+Collection of tools for making custom maps for Skater XL.
+
+If you'd like a full template project with example scenes and everything set up and ready to start making maps, check out [SXL-Template-Project](https://github.com/billowper/SXL-Template-Project)
 
 ## How to Install
 
