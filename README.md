@@ -12,10 +12,13 @@ Collection of tools for making custom maps for Skater XL
 ![Add Package](https://i.imgur.com/m8oimus.jpg)
 
 ## Features
+
+![ToolsWindow](https://i.imgur.com/ME4r345.jpg)
+
 ### Export Tool
 Builds your open scene to an AssetBundle and copies the file to the Skater XL custom maps directory in My Documents, ready to play! You can also override the export name and delete previous versions in the maps directory using the tools window.
 
-![ExportTool](https://i.imgur.com/ocOVFNQ.jpg) ![ToolsWindow](https://i.imgur.com/ME4r345.jpg)
+![ExportTool](https://i.imgur.com/ocOVFNQ.jpg) 
 
 ### GrindSurface
 This component aims to streamline the creation of grindable objects, including generation of primitive colliders. 
