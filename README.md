@@ -34,7 +34,7 @@ This component makes setting up grindable objects a little easier, with visual g
 * The GrindSpline component will automatically update the name of the object so that it gets picked up correctly by the importer
 * When Exporting, all objects with a GrindSpline component are moved into a "Grinds" object in the root of the scene, in order for the importer to detect and process them correctly.
 
-![GrindSpline](https://i.imgur.com/AasBieg.jpg)
+![GrindSpline](https://i.imgur.com/svtbzpe.jpeg)
 
 ###  GrindSurface Spline Generation (Experimental)
 GrindSurface and the accompnaying Grind Surface Generator tool window now allow you to generate splines for the selected GrindSurface.
@@ -42,7 +42,7 @@ GrindSurface and the accompnaying Grind Surface Generator tool window now allow 
 * Select 1 or more objects in your scene and hit `CTRL + G` to add GrindSurfaces to them, which then automatically generates splines.
 * Open the Grind Surface Generator window under the SXL menu item for settings and options, plus a button to a selected box collider's offset (useful when some edges don't get nicely det
 
-![GrindSurfaceGenreation](https://i.imgur.com/Aa2f6hh.jpg)
+![GrindSurfaceGenreation](https://i.imgur.com/VVaL715.jpg)
 
 ### Player Scale Reference Tool
 Pressing `Shift + G` will place a scale reference player model at your mouse position in the scene view. The model is Editor Only, so don't worry about him showing up in your exported map!
