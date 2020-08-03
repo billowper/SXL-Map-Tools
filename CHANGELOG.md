@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.3] - Initial release
+- Removed bad editor reference
+
 ## [1.0.2] - Initial release
 - Fixed bad asmdefs again?
 
