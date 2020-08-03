@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.2] - Initial release
+- Fixed bad asmdefs again?
+
 ## [1.0.1] - Initial release
 - Fixed bad asmdefs
 
