@@ -11,8 +11,9 @@ public class GrindSurface : MonoBehaviour
     public bool IsRound;
 
     public ColliderGenerationSettings ColliderGenerationSettings = new ColliderGenerationSettings();
+	public static bool AutoGenerateNewSuraces { get; set; } = false;
 
-    private void OnValidate()
+	private void OnValidate()
     {
         if (Splines.Count == 0)
         {

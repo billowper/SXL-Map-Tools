@@ -15,11 +15,16 @@ public static class GrindSplineGenerator
     private static readonly List<Vector3> activeSplinePoints = new List<Vector3>();
     private static readonly List<Vector3> searchBuffer = new List<Vector3>();
 
-    public static float PointTestOffset = 0.1f;
-    public static float PointTestRadius = 0.05f;
+	public static int MaxVertices = 128;
+    public static float CollisionTestOffset = 0.1f;
+    public static float CollisionTestRadius = 0.05f;
     public static float MaxHorizontalAngle = 15f;
     public static float MaxSlope = 60f;
     public static float MinVertexDistance = 0.05f;
+
+	/// <summary>
+	/// If true, vertex suitability scoring collision tests will only run against colliders that are children of the same GrindSurface.
+	/// </summary>
     public static bool SkipExternalCollisionChecks = true;
 
     public static bool DrawDebug;
@@ -51,7 +56,12 @@ public static class GrindSplineGenerator
             {
                 for (int i = 0; i < m.sharedMesh.vertexCount; i++)
                 {
-                    if (IsValidPotentialVertex(surface.transform, m, i, out var w, out var score))
+	                if (vertices.Count > MaxVertices)
+	                {
+		                break;
+	                }
+
+					if (IsValidPotentialVertex(surface.transform, m, i, out var w, out var score))
                     {
                         if (vertices.Contains(w) == false)
                         {
@@ -336,7 +346,7 @@ public static class GrindSplineGenerator
     {
         var m = Vector3.Lerp(current, next, 0.5f);
 
-        if (Physics.CheckBox(m, Vector3.one * PointTestRadius))
+        if (Physics.CheckBox(m, Vector3.one * CollisionTestRadius))
         {
             return true;
         }
@@ -424,11 +434,11 @@ public static class GrindSplineGenerator
 
         bool test_dir(Vector3 dir)
         {
-            var t = v + (dir * PointTestOffset);
+            var t = v + (dir * CollisionTestOffset);
 
             if (SkipExternalCollisionChecks)
             {
-                var cols = Physics.OverlapBox(t, Vector3.one * PointTestRadius);
+                var cols = Physics.OverlapBox(t, Vector3.one * CollisionTestRadius);
                 foreach (var c in cols)
                 {
                     if (c.transform.IsChildOf(root))
@@ -442,7 +452,7 @@ public static class GrindSplineGenerator
             }
             else
             {
-                if (Physics.CheckBox(t, Vector3.one * PointTestRadius))
+                if (Physics.CheckBox(t, Vector3.one * CollisionTestRadius))
                 {
                     if (DrawDebug)
                         Debug.DrawLine(v, t, Color.red, 0.2f);

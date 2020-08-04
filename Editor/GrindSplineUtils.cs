@@ -15,7 +15,7 @@ public static class GrindSplineUtils
         CreateObjectWithComponent<GrindSurface>("GrindSurface");
     }
 
-    [MenuItem("SXL/Add GrindSurface")]   
+    [MenuItem("SXL/Add GrindSurface %g")]   
     private static void AddGrindSurface()
     {
         foreach (var o in Selection.gameObjects)
@@ -26,12 +26,16 @@ public static class GrindSplineUtils
             else
                 surface.DestroySplines();
 
-            GrindSplineGenerator.Generate(surface, new ColliderGenerationSettings()
-            {
-                IsEdge = EditorPrefs.GetBool("gsDefault_IsEdge"),
-                AutoDetectEdgeAlignment = EditorPrefs.GetBool("gsDefault_AutoDetectEdgeAlignment"),
-                ColliderType = (ColliderGenerationSettings.ColliderTypes) EditorPrefs.GetInt("gsDefault_ColliderType")
-            });
+	        if (GrindSurface.AutoGenerateNewSuraces)
+	        {
+		        GrindSplineGenerator.Generate(surface,
+			        new ColliderGenerationSettings()
+			        {
+				        IsEdge = EditorPrefs.GetBool("gsDefault_IsEdge"),
+				        AutoDetectEdgeAlignment = EditorPrefs.GetBool("gsDefault_AutoDetectEdgeAlignment"),
+				        ColliderType = (ColliderGenerationSettings.ColliderTypes) EditorPrefs.GetInt("gsDefault_ColliderType")
+			        });
+	        }
         }
     }
 
