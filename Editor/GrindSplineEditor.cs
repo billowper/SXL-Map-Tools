@@ -15,7 +15,7 @@ public class GrindSplineEditor : Editor
 
         EditorGUI.BeginChangeCheck();
 
-        EditorGUILayout.BeginVertical(new GUIStyle("box"));
+	    using (new EditorGUILayout.VerticalScope(new GUIStyle("box")))
         {
             EditorGUILayout.LabelField("Grind Settings", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("SurfaceType"));
@@ -23,11 +23,10 @@ public class GrindSplineEditor : Editor
 
             EditorGUILayout.HelpBox("These are used by the map importer to determine what kind of grind this is", MessageType.Info, true);
         }
-        EditorGUILayout.EndVertical();
 
         if (targets.Length == 1)
         {
-            EditorGUILayout.BeginVertical(new GUIStyle("box"));
+	        using (new EditorGUILayout.VerticalScope(new GUIStyle("box")))
             {
                 EditorGUILayout.LabelField("Spline Tools", EditorStyles.boldLabel);
                 EditorGUILayout.BeginHorizontal();
@@ -66,17 +65,28 @@ public class GrindSplineEditor : Editor
                 }
                 EditorGUI.indentLevel--;
             }
-            EditorGUILayout.EndVertical();
         }
 
-        EditorGUILayout.BeginVertical(new GUIStyle("box"));
-        {
+	    if (EditorGUI.EndChangeCheck())
+	    {
+		    serializedObject.ApplyModifiedProperties();
+	    }
+
+	    using (new EditorGUILayout.VerticalScope(new GUIStyle("box")))
+	    {
+		    EditorGUI.BeginChangeCheck();
+
             EditorGUILayout.LabelField("Colliders ", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("ColliderContainer"));
             EditorGUI.indentLevel++;
             EditorGUILayout.PropertyField(serializedObject.FindProperty("ColliderGenerationSettings"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("GeneratedColliders"), true);
             EditorGUI.indentLevel--;
+
+			if (EditorGUI.EndChangeCheck())
+		    {
+			    serializedObject.ApplyModifiedProperties();
+		    }
 
             if (GUILayout.Button("Generate Colliders"))
             {
@@ -88,16 +98,8 @@ public class GrindSplineEditor : Editor
 
                         t.GenerateColliders();
                     }
-
-                    serializedObject.UpdateIfRequiredOrScript();
                 }
             }
-        }
-        EditorGUILayout.EndVertical();
-
-        if (EditorGUI.EndChangeCheck())
-        {
-            serializedObject.ApplyModifiedProperties();
         }
     }
 
