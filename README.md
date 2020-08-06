@@ -6,7 +6,7 @@ If you'd like a full template project with example scenes and everything set up 
 
 ## How to Install
 
-Install from Git (recommended, but you must have [Git installed](https://desktop.github.com/)
+Install from Git (recommended, but you must have [Git installed](https://desktop.github.com/))
 
 1. Open the Unity Package Manager under `Window/Package Manager`
 2. Click the + button at the top left and chose "Add package from git URL..."
