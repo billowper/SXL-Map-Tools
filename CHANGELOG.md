@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.4] - Initial release
+- Fixed errors when we were unable to copy exporter asset bundle to maps folder (check it exists, log if it doesnt)
+
 ## [1.0.3] - Initial release
 - Removed bad editor reference
 

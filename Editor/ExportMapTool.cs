@@ -70,16 +70,24 @@ public static class ExportMapTool
 
             Debug.Log($"BuildAssetBundles took {time_taken:mm\\:ss}");
 
+	        var bundle_path = Path.Combine(Application.dataPath.Replace("/Assets", "/AssetBundles"), build.assetBundleName);
+
             var map_dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "SkaterXL/Maps");
-            var bundle_path = Path.Combine(Application.dataPath.Replace("/Assets", "/AssetBundles"), build.assetBundleName);
             var dest_path = Path.Combine(map_dir, build.assetBundleName);
-      
-            Debug.Log($"Copying {bundle_path} to {dest_path}");
 
-            File.Copy(bundle_path, dest_path, overwrite: true);
-            File.Delete(bundle_path);
+	        if (Directory.Exists(map_dir))
+	        {
+		        Debug.Log($"Copying {bundle_path} to {dest_path}");
 
-            EditorSceneManager.OpenScene(scene.path);
+		        File.Copy(bundle_path, dest_path, overwrite: true);
+		        File.Delete(bundle_path);
+	        }
+	        else
+	        {
+		        Debug.Log($"SkaterXL Maps folder not found at '{dest_path}', asset bundle saved to '{bundle_name}'");
+	        }
+
+	        EditorSceneManager.OpenScene(scene.path);
 
 	        if (run_game_after_export)
 	        {

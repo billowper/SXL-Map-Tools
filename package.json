@@ -1,6 +1,6 @@
 {
   "name": "com.billowper.sxl-map-tools",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "displayName": "SXL Map Tools",
   "description": "Collection of tools for making custom maps for Skater SXL",
   "unity": "2019.3",
