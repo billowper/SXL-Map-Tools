@@ -6,12 +6,17 @@ If you'd like a full template project with example scenes and everything set up 
 
 ## How to Install
 
+Install from Git (recommended, but you must have [Git installed](https://desktop.github.com/)
+
 1. Open the Unity Package Manager under `Window/Package Manager`
 2. Click the + button at the top left and chose "Add package from git URL..."
 3. Paste this URL `https://github.com/billowper/SXL-Map-Tools.git`
-4. Wait for install
 
-![Add Package](https://i.imgur.com/m8oimus.jpg)
+Install from file
+1. Download the repo as a zip file
+2. Unzip it somewhere
+3. Click the + button at the top left and choose "Add package from disk..."
+4. Select the package.json from the folder you unzipped to
 
 ## Features
 
